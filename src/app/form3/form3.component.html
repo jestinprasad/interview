@@ -1,0 +1,24 @@
+<form [formGroup]="form3" (ngSubmit)="onSubmit()">
+  <label>Customer Name</label>
+  <input type="text" formControlName="customerName">
+  <label>Customer Email</label>
+  <input type="text" formControlName="email">
+  <h3>Items</h3>  
+  <div>
+  <div formArrayName="items" 
+  *ngFor="let item of form3.get('items').controls; let i = index;">
+  <div [formGroupName]="i">
+    <label>Name</label>
+    <input formControlName="name" placeholder="Item name">
+    <label>Description</label>    
+    <input formControlName="description" placeholder="Item description">
+    <label>Price</label>    
+    <input formControlName="price" placeholder="Item price">
+  </div><br>
+  <!-- Chosen name: {{ form3.controls.items.controls[i].controls.name.value }} -->
+</div>
+<button (click)="addItem()">Add Item</button>
+<button *ngIf="form3.controls.items.controls.length > 1" (click)="removeItem(i)">Remove Item</button>
+</div>
+<button type="submit" [disabled]="!form3.valid">Submit</button>
+</form>

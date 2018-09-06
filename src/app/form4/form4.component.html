@@ -1,0 +1,22 @@
+<p>
+  form4 works!
+</p>
+<form2 (form2Data)="getData($event)"></form2>
+<table>
+  <thead>
+    <th>S.No</th>
+    <th>Name</th>
+    <th>Email</th>  
+    <th>Street</th>    
+    <th>State</th>    
+  </thead>
+  <tbody *ngIf="data">
+    <tr *ngFor="let data1 of data.value; let i = index">
+      <td>{{i+1}}</td>
+      <td>{{data1.name}}</td>
+      <td>{{data1.phone}}</td>
+      <td>{{data1.address.street}}</td>
+      <td>{{data1.address.state}}</td>      
+    </tr>
+  </tbody>
+</table>

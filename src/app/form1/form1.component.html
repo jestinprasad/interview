@@ -1,0 +1,15 @@
+<form [formGroup]='form1' (ngSubmit)="onSubmit()">
+  <label>Name</label>
+  <input type="text" formControlName="name">  
+  <label>Phone</label>
+  <input type="text" formControlName="phone">
+  <div formGroupName='address'>
+  <h3>Address</h3>
+    <label>Street</label>
+    <input type="text" formControlName="street">
+    <label>State</label>
+    <input type="text" formControlName="state">
+  </div>
+<button type="submit" [disabled]="!form1.valid">Submit</button>
+<button (click)="updateValue()">Update</button>
+</form>

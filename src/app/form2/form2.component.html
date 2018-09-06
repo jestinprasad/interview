@@ -1,0 +1,18 @@
+<form [formGroup]="form2" (ngSubmit)="onSubmit()">
+  <div formGroupName="tempData">
+      <label>Name</label>
+      <input type="text" formControlName = "name">
+      <label>Phone</label>
+      <input type="text" formControlName = "phone"> 
+      <div formGroupName = "address">
+        <h3>Address</h3>
+      <label>Street</label>
+      <input type="text" formControlName = "street">  
+      <label>State</label>  
+      <input type="text" formControlName = "state">
+    </div>
+  </div>
+  <button type="submit" [disabled]="!form2.valid">Submit</button>  
+  <button (click)="updateValue()">Update</button>
+</form>
+FormStatus : {{form2.status}}
